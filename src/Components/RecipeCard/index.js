@@ -1,14 +1,11 @@
 import React from "react"
 import coffeeList from "../../coffee-list"
 
-// const selectDrink = () => {}
-
-const Card = props => {
+const RecipeCard = props => {
   const selectedCoffee = coffeeList.find(coffee => coffee.name === props.drink)
 
   const displayCoffee = () => {
     if (selectedCoffee) {
-      console.log(selectedCoffee)
       return (
         <>
           <div className="card-image">This is an image</div>
@@ -36,4 +33,4 @@ const Card = props => {
   )
 }
 
-export default Card
+export default RecipeCard
