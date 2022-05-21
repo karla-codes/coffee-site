@@ -10,21 +10,7 @@ const Options = () => {
   const [nextCoffee, setNextCoffee] = useState(coffeeList[1].name)
   const [prevCoffee, setPrevCoffee] = useState(coffeeList[coffeeList.length - 1].name)
 
-  const updateCoffeeSelection = e => {
-    const selectedCoffee = e.target.value
-    console.log(selectedCoffee)
-    setCoffee(selectedCoffee)
-    updateNextPrevCoffee(selectedCoffee)
-  }
-
   const updateNextPrevCoffee = currentCoffee => {
-    // check what coffee is selected
-    // get index for selected coffee
-    // begin scroll at that index
-    // if 'right' btn selected, add 1 to index and setCoffee
-    // if 'left' btn selected, subtract 1 from index and setCoffee
-    // let next
-    // let prev
     coffeeList.forEach((drink, index) => {
       if (drink.name === currentCoffee) {
         const next =
@@ -37,10 +23,23 @@ const Options = () => {
     })
   }
 
-  const next = () => {
+  const updateCoffeeSelection = e => {
+    const selectedCoffee = e.target.value
+    console.log(selectedCoffee)
+    setCoffee(selectedCoffee)
+    updateNextPrevCoffee(selectedCoffee)
+  }
+
+  const nextCard = () => {
     console.log(nextCoffee)
     setCoffee(nextCoffee)
     updateNextPrevCoffee(nextCoffee)
+  }
+
+  const previousCard = () => {
+    console.log(prevCoffee)
+    setCoffee(prevCoffee)
+    updateNextPrevCoffee(prevCoffee)
   }
 
   return (
@@ -63,10 +62,10 @@ const Options = () => {
       </div>
       <RecipeCard drink={coffee} />
       <div className="scroll-buttons">
-        <button id="left" onClick={updateNextPrevCoffee}>
+        <button id="left" onClick={previousCard}>
           Left
         </button>
-        <button id="right" onClick={next}>
+        <button id="right" onClick={nextCard}>
           Right
         </button>
       </div>
