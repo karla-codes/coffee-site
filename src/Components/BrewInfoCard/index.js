@@ -8,7 +8,7 @@ const BrewInfoCard = () => {
       <div className="card-wrapper">
         {brewingMethods.map((brew, index) => {
           return (
-            <div className="card-info">
+            <div className="card-info" key={index}>
               <h1>{brew.name}</h1>
               <p>{brew.description}</p>
             </div>
