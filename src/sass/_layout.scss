@@ -1,0 +1,185 @@
+$select-border: rgb(0, 0, 0);
+$select-focus: blue;
+$select-arrow: $select-border;
+
+header {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin-inline: auto;
+  margin-top: 2rem;
+
+  nav {
+    ul {
+      display: flex;
+      flex-direction: column;
+      list-style: none;
+      text-align: right;
+
+      li {
+        margin-bottom: 10px;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+
+        &:hover {
+          cursor: pointer;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}
+
+main {
+  width: 90%;
+  max-width: 1080px;
+  margin-inline: auto;
+  margin-top: 4rem;
+
+  .drinks,
+  .brewing-methods {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .drinks {
+    max-width: 916px;
+    margin-inline: auto;
+
+    .intro {
+      margin-bottom: 2rem;
+      max-width: 400px;
+    }
+
+    article.recipe-card {
+      display: flex;
+      flex-direction: column;
+      // margin-bottom: 100px;
+
+      .options {
+        display: flex;
+        flex-direction: column;
+        margin: 16px 0 32px;
+        width: max-content;
+        margin-inline: auto;
+
+        label {
+          margin-bottom: 6px;
+        }
+
+        select {
+          // reset
+          background-color: transparent;
+          border: none;
+          padding: 0 1rem 0 0;
+          margin: 0;
+          width: 100%;
+          font-family: inherit;
+          font-size: inherit;
+          cursor: inherit;
+          line-height: inherit;
+
+          display: flex;
+          min-width: 15ch;
+          border: 2px solid $select-border;
+          border-radius: 10px;
+          padding: 0.25rem 0.5rem;
+          font-size: 1.25rem;
+          cursor: pointer;
+          line-height: 1.1;
+          background-color: #fff;
+          max-width: 20ch;
+
+          &::-ms-expand {
+            display: none;
+          }
+        }
+      }
+
+      .card-wrapper {
+        display: grid;
+        grid-template-rows: auto;
+        gap: 32px;
+        justify-items: center;
+
+        @media screen and (min-width: 916px) {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: 500px auto;
+          grid-template-areas:
+            "image info"
+            "buttons buttons";
+          gap: 60px 32px;
+        }
+
+        .card-image {
+          @media screen and (min-width: 916px) {
+            grid-area: image;
+            align-self: center;
+          }
+
+          svg {
+            margin-inline: auto;
+          }
+        }
+
+        .card-info {
+          border: 2px solid black;
+          border-radius: 10px;
+          padding: 2rem;
+          margin-top: 2rem;
+          margin-inline: auto;
+          max-width: 60ch;
+
+          @media screen and (min-width: 916px) {
+            grid-area: info;
+          }
+
+          h1,
+          h2 {
+            margin-bottom: 5px;
+          }
+
+          h2 {
+            display: inline;
+            width: max-content;
+            margin-right: 12px;
+          }
+
+          p:not(:first-of-type) {
+            display: inline;
+          }
+        }
+
+        .scroll-buttons {
+          position: sticky;
+          bottom: 32px;
+
+          @media screen and (min-width: 916px) {
+            grid-area: buttons;
+          }
+        }
+
+        // .card-image,
+        // .card-info,
+        // .scroll-buttons {
+        //   border: 2px solid red;
+        // }
+      }
+    }
+  }
+}
+
+.no-match {
+  width: 80%;
+  margin-inline: auto;
+  margin-top: 4rem;
+}
+
+.active-link {
+  background-color: hsl(50, 97%, 74%);
+  padding: 5px 10px;
+  font-weight: 600;
+}
