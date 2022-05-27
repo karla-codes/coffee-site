@@ -2,7 +2,6 @@ import React from "react"
 import brewingMethods from "../../brewing-methods"
 
 const BrewInfoCard = () => {
-  console.log(brewingMethods)
   return (
     <article>
       <div className="card-wrapper">

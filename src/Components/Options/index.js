@@ -2,9 +2,6 @@ import React, { useState } from "react"
 import coffeeList from "../../coffee-list"
 import RecipeCard from "../RecipeCard"
 
-// needs state for the select element
-// when a drink is selected, display the corresponding recipe card
-
 const Options = () => {
   const [coffee, setCoffee] = useState(coffeeList[0].name)
   const [nextCoffee, setNextCoffee] = useState(coffeeList[1].name)
@@ -49,6 +46,8 @@ const Options = () => {
           Scroll through a selection of 18 coffee drink recipes or select a coffee drink from the
           menu below.
         </p>
+      </div>
+      <article className="recipe-card">
         <div className="options">
           <label>Select a coffee:</label>
           <select name="coffee-drinks" id="coffee-selector" onChange={updateCoffeeSelection}>
@@ -59,16 +58,9 @@ const Options = () => {
             ))}
           </select>
         </div>
-      </div>
-      <RecipeCard drink={coffee} />
-      <div className="scroll-buttons">
-        <button id="left" onClick={previousCard}>
-          Left
-        </button>
-        <button id="right" onClick={nextCard}>
-          Right
-        </button>
-      </div>
+
+        <RecipeCard drink={coffee} previousCard={previousCard} nextCard={nextCard} />
+      </article>
     </>
   )
 }
