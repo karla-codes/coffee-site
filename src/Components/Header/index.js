@@ -1,5 +1,5 @@
-import React from "react"
-import { Link } from "react-router-dom"
+import { React, useState } from "react"
+import { NavLink } from "react-router-dom"
 
 const Header = () => {
   return (
@@ -23,10 +23,17 @@ const Header = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/">Coffee Drinks</Link>
+            <NavLink to="/" className={({ isActive }) => (isActive ? "active-link" : undefined)}>
+              Coffee Drinks
+            </NavLink>
           </li>
           <li>
-            <Link to="/brewing-methods">Brewing Methods</Link>
+            <NavLink
+              to="/brewing-methods"
+              className={({ isActive }) => (isActive ? "active-link" : undefined)}
+            >
+              Brewing Methods
+            </NavLink>
           </li>
         </ul>
       </nav>
