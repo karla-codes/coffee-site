@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom"
 import Header from "./Components/Header"
 import Drinks from "./Components/Drinks"
 import BrewingMethods from "./Components/BrewingMethods"
+import Footer from "./Components/Footer"
 import "./css/style.css"
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           />
         </Routes>
       </main>
+      <Footer />
     </>
   )
 }
