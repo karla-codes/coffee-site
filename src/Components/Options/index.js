@@ -43,8 +43,8 @@ const Options = () => {
     <>
       <div className="intro">
         <p>
-          Scroll through a selection of 18 coffee drink recipes or select a coffee drink from the
-          menu below.
+          Scroll through a selection of {coffeeList.length} coffee drink recipes or select a coffee
+          drink from the menu below.
         </p>
       </div>
       <article className="recipe-card">
