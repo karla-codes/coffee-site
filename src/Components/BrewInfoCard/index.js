@@ -3,17 +3,15 @@ import brewingMethods from "../../brewing-methods"
 
 const BrewInfoCard = () => {
   return (
-    <article>
-      <div className="card-wrapper">
-        {brewingMethods.map((brew, index) => {
-          return (
-            <div className="card-info" key={index}>
-              <h1>{brew.name}</h1>
-              <p>{brew.description}</p>
-            </div>
-          )
-        })}
-      </div>
+    <article className="brewing-methods-wrapper">
+      {brewingMethods.map((brew, index) => {
+        return (
+          <div className="brew-info" key={index}>
+            <h1>{brew.name}</h1>
+            <p>{brew.description}</p>
+          </div>
+        )
+      })}
     </article>
   )
 }
