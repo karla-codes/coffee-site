@@ -13,7 +13,8 @@
 }
 
 html,
-body {
+body,
+#__next {
   height: 100%;
 }
 
@@ -67,32 +68,73 @@ h6 {
   font-weight: 700;
   font-display: swap;
 }
+p,
+a {
+  font-size: 1.125rem;
+}
+
+h1,
+h2 {
+  font-weight: 600;
+}
+
 .no-match h1 {
   font-size: clamp(1.5rem, 2vw + 1rem, 4rem);
-  font-weight: 600;
 }
 
 body {
   font-family: "Work Sans", sans-serif;
   font-size: 16px;
   width: 100%;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  margin-bottom: 5px;
+}
+
+body {
+  background-color: #fafbff;
 }
 
 header {
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  width: 80%;
   margin-inline: auto;
-  margin-top: 2rem;
+  margin-top: 52px;
+}
+header svg {
+  width: 100px;
+  height: auto;
 }
 header nav ul {
   display: flex;
   flex-direction: column;
   list-style: none;
   text-align: right;
+  padding: 0;
+}
+@media screen and (min-width: 916px) {
+  header nav ul {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 header nav ul li {
-  margin-bottom: 10px;
+  margin-bottom: 16px;
+}
+@media screen and (min-width: 916px) {
+  header nav ul li {
+    margin-bottom: 0;
+    margin-left: 16px;
+  }
 }
 header nav ul a {
   text-decoration: none;
@@ -101,26 +143,31 @@ header nav ul a {
 header nav ul a:hover {
   cursor: pointer;
   font-weight: 600;
+  color: #3834b2;
 }
 
 main {
-  width: 90%;
-  max-width: 1080px;
-  margin-inline: auto;
-  margin-top: 4rem;
+  width: 80%;
+  max-width: 1024px;
+  margin: 64px auto;
 }
 main .drinks,
 main .brewing-methods {
   display: flex;
   flex-direction: column;
 }
-main .drinks {
-  max-width: 916px;
-  margin-inline: auto;
+@media screen and (min-width: 916px) {
+  main .drinks,
+main .brewing-methods {
+    margin-bottom: 100px;
+  }
 }
-main .drinks .intro {
-  margin-bottom: 2rem;
-  max-width: 400px;
+main .intro {
+  margin-bottom: 32px;
+  max-width: 432px;
+}
+main .drinks {
+  margin-inline: auto;
 }
 main .drinks article.recipe-card {
   display: flex;
@@ -129,9 +176,12 @@ main .drinks article.recipe-card {
 main .drinks article.recipe-card .options {
   display: flex;
   flex-direction: column;
-  margin: 16px 0 32px;
-  width: max-content;
-  margin-inline: auto;
+  margin-bottom: 64px;
+}
+@media screen and (min-width: 916px) {
+  main .drinks article.recipe-card .options {
+    margin-bottom: 0;
+  }
 }
 main .drinks article.recipe-card .options label {
   margin-bottom: 6px;
@@ -148,10 +198,10 @@ main .drinks article.recipe-card .options select {
   line-height: inherit;
   display: flex;
   min-width: 15ch;
-  border: 2px solid rgb(0, 0, 0);
+  border: 2px solid black;
   border-radius: 10px;
   padding: 0.25rem 0.5rem;
-  font-size: 1.25rem;
+  font-size: 1rem;
   cursor: pointer;
   line-height: 1.1;
   background-color: #fff;
@@ -169,64 +219,117 @@ main .drinks article.recipe-card .card-wrapper {
 @media screen and (min-width: 916px) {
   main .drinks article.recipe-card .card-wrapper {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 500px auto;
+    grid-template-rows: 450px auto;
     grid-template-areas: "image info" "buttons buttons";
-    gap: 60px 32px;
+    gap: 32px;
   }
 }
+main .drinks article.recipe-card .card-wrapper .coffee-img {
+  width: 300px;
+  height: 300px;
+  border: 2px solid #3834b2;
+}
 @media screen and (min-width: 916px) {
-  main .drinks article.recipe-card .card-wrapper .card-image {
+  main .drinks article.recipe-card .card-wrapper .coffee-img {
     grid-area: image;
     align-self: center;
   }
 }
-main .drinks article.recipe-card .card-wrapper .card-image svg {
+main .drinks article.recipe-card .card-wrapper .coffee-img svg {
   margin-inline: auto;
 }
 main .drinks article.recipe-card .card-wrapper .card-info {
-  border: 2px solid black;
-  border-radius: 10px;
-  padding: 2rem;
-  margin-top: 2rem;
-  margin-inline: auto;
+  margin: 32px auto 0;
   max-width: 60ch;
+  min-height: 400px;
 }
 @media screen and (min-width: 916px) {
   main .drinks article.recipe-card .card-wrapper .card-info {
     grid-area: info;
+    align-self: center;
+    min-height: auto;
   }
 }
-main .drinks article.recipe-card .card-wrapper .card-info h1,
 main .drinks article.recipe-card .card-wrapper .card-info h2 {
-  margin-bottom: 5px;
-}
-main .drinks article.recipe-card .card-wrapper .card-info h2 {
-  display: inline;
+  font-size: 1.25rem;
+  font-weight: 600;
   width: max-content;
   margin-right: 12px;
 }
-main .drinks article.recipe-card .card-wrapper .card-info p:not(:first-of-type) {
-  display: inline;
+main .drinks article.recipe-card .card-wrapper .card-info p {
+  margin-bottom: 10px;
 }
 main .drinks article.recipe-card .card-wrapper .scroll-buttons {
-  position: sticky;
-  bottom: 32px;
+  display: flex;
+  justify-content: space-between;
+  width: 150px;
 }
 @media screen and (min-width: 916px) {
   main .drinks article.recipe-card .card-wrapper .scroll-buttons {
     grid-area: buttons;
   }
 }
+main .drinks article.recipe-card .card-wrapper .scroll-buttons button {
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  border: 3px solid #3834b2;
+  background-color: #bac9fd;
+  box-shadow: 2px 2px 4px hsla(0deg, 0%, 0%, 0.643);
+  color: #3834b2;
+  cursor: pointer;
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+main .drinks article.recipe-card .card-wrapper .scroll-buttons button:active {
+  box-shadow: none;
+}
+main .brewing-methods-wrapper {
+  display: grid;
+  grid-template-rows: auto;
+  gap: 32px;
+  margin: 32px auto;
+}
+@media screen and (min-width: 600px) {
+  main .brewing-methods-wrapper {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+}
+main .brewing-methods-wrapper .brew-info {
+  border: 3px solid #3834b2;
+  border-radius: 10px;
+  background-color: #bac9fd;
+  padding: 32px 24px;
+}
+
+footer {
+  background-color: #fcebbb;
+  width: 100%;
+  margin-inline: auto;
+  padding: 32px;
+  margin-top: auto;
+}
+footer a {
+  color: #3834b2;
+  font-weight: 600;
+}
 
 .no-match {
   width: 80%;
   margin-inline: auto;
-  margin-top: 4rem;
+  margin-top: 64px;
+}
+.no-match p {
+  font-size: 1.125rem;
 }
 
 .active-link {
-  background-color: hsl(50deg, 97%, 74%);
-  padding: 5px 10px;
+  background-color: #fcebbb;
+  color: #3834b2;
+  padding: 2px;
   font-weight: 600;
 }
 

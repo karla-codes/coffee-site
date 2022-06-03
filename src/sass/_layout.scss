@@ -1,13 +1,24 @@
-$select-border: rgb(0, 0, 0);
-$select-focus: blue;
-$select-arrow: $select-border;
+$box-width: 80%;
+$background-color: #fafbff;
+$main-color: #fcebbb;
+$dark-secondary: #3834b2;
+$light-secondary: #bac9fd;
+
+body {
+  background-color: $background-color;
+}
 
 header {
   display: flex;
   justify-content: space-between;
-  width: 90%;
+  width: $box-width;
   margin-inline: auto;
-  margin-top: 2rem;
+  margin-top: 52px;
+
+  svg {
+    width: 100px;
+    height: auto;
+  }
 
   nav {
     ul {
@@ -15,9 +26,20 @@ header {
       flex-direction: column;
       list-style: none;
       text-align: right;
+      padding: 0;
+
+      @media screen and (min-width: 916px) {
+        flex-direction: row;
+        justify-content: space-between;
+      }
 
       li {
-        margin-bottom: 10px;
+        margin-bottom: 16px;
+
+        @media screen and (min-width: 916px) {
+          margin-bottom: 0;
+          margin-left: 16px;
+        }
       }
 
       a {
@@ -27,6 +49,7 @@ header {
         &:hover {
           cursor: pointer;
           font-weight: 600;
+          color: $dark-secondary;
         }
       }
     }
@@ -34,37 +57,41 @@ header {
 }
 
 main {
-  width: 90%;
-  max-width: 1080px;
-  margin-inline: auto;
-  margin-top: 4rem;
+  width: $box-width;
+  max-width: 1024px;
+  margin: 64px auto;
 
   .drinks,
   .brewing-methods {
     display: flex;
     flex-direction: column;
+
+    @media screen and (min-width: 916px) {
+      margin-bottom: 100px;
+    }
+  }
+
+  .intro {
+    margin-bottom: 32px;
+    max-width: 432px;
   }
 
   .drinks {
-    max-width: 916px;
+    // max-width: 1024px;
     margin-inline: auto;
-
-    .intro {
-      margin-bottom: 2rem;
-      max-width: 400px;
-    }
 
     article.recipe-card {
       display: flex;
       flex-direction: column;
-      // margin-bottom: 100px;
 
       .options {
         display: flex;
         flex-direction: column;
-        margin: 16px 0 32px;
-        width: max-content;
-        margin-inline: auto;
+        margin-bottom: 64px;
+
+        @media screen and (min-width: 916px) {
+          margin-bottom: 0;
+        }
 
         label {
           margin-bottom: 6px;
@@ -84,10 +111,10 @@ main {
 
           display: flex;
           min-width: 15ch;
-          border: 2px solid $select-border;
+          border: 2px solid black;
           border-radius: 10px;
           padding: 0.25rem 0.5rem;
-          font-size: 1.25rem;
+          font-size: 1rem;
           cursor: pointer;
           line-height: 1.1;
           background-color: #fff;
@@ -107,14 +134,18 @@ main {
 
         @media screen and (min-width: 916px) {
           grid-template-columns: repeat(2, 1fr);
-          grid-template-rows: 500px auto;
+          grid-template-rows: 450px auto;
           grid-template-areas:
             "image info"
             "buttons buttons";
-          gap: 60px 32px;
+          gap: 32px;
         }
 
-        .card-image {
+        .coffee-img {
+          width: 300px;
+          height: 300px;
+          border: 2px solid $dark-secondary;
+
           @media screen and (min-width: 916px) {
             grid-area: image;
             align-self: center;
@@ -126,60 +157,109 @@ main {
         }
 
         .card-info {
-          border: 2px solid black;
-          border-radius: 10px;
-          padding: 2rem;
-          margin-top: 2rem;
-          margin-inline: auto;
+          margin: 32px auto 0;
           max-width: 60ch;
+          min-height: 400px;
 
           @media screen and (min-width: 916px) {
             grid-area: info;
-          }
-
-          h1,
-          h2 {
-            margin-bottom: 5px;
+            align-self: center;
+            min-height: auto;
           }
 
           h2 {
-            display: inline;
+            font-size: 1.25rem;
+            font-weight: 600;
             width: max-content;
             margin-right: 12px;
           }
 
-          p:not(:first-of-type) {
-            display: inline;
+          p {
+            margin-bottom: 10px;
           }
         }
 
         .scroll-buttons {
-          position: sticky;
-          bottom: 32px;
+          display: flex;
+          justify-content: space-between;
+          width: 150px;
 
           @media screen and (min-width: 916px) {
             grid-area: buttons;
           }
-        }
 
-        // .card-image,
-        // .card-info,
-        // .scroll-buttons {
-        //   border: 2px solid red;
-        // }
+          button {
+            background-color: transparent;
+            border: none;
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+
+            border: 3px solid $dark-secondary;
+            background-color: $light-secondary;
+            box-shadow: 2px 2px 4px hsla(0, 0%, 0%, 0.643);
+            color: $dark-secondary;
+            cursor: pointer;
+            font-size: 1.8rem;
+            font-weight: 600;
+            text-align: center;
+
+            &:active {
+              box-shadow: none;
+            }
+          }
+        }
       }
     }
+  }
+
+  .brewing-methods {
+    &-wrapper {
+      display: grid;
+      grid-template-rows: auto;
+      gap: 32px;
+      margin: 32px auto;
+
+      @media screen and (min-width: 600px) {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      }
+
+      .brew-info {
+        border: 3px solid $dark-secondary;
+        border-radius: 10px;
+        background-color: $light-secondary;
+        padding: 32px 24px;
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $main-color;
+  width: 100%;
+  margin-inline: auto;
+  padding: 32px;
+  margin-top: auto;
+
+  a {
+    color: $dark-secondary;
+    font-weight: 600;
   }
 }
 
 .no-match {
   width: 80%;
   margin-inline: auto;
-  margin-top: 4rem;
+  margin-top: 64px;
+
+  p {
+    font-size: 1.125rem;
+  }
 }
 
 .active-link {
-  background-color: hsl(50, 97%, 74%);
-  padding: 5px 10px;
+  background-color: $main-color;
+  color: $dark-secondary;
+  padding: 2px;
   font-weight: 600;
 }

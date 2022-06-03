@@ -1,18 +1,16 @@
-$select-focus: blue;
-
 body {
   font-family: "Work Sans", sans-serif;
   font-size: 16px;
   width: 100%;
+  min-height: 100vh;
 }
 
-// a,
-// button,
-// select {
-//   outline: none;
-// }
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
-// a:focus,
-// button:focus-within {
-//   border: 2px solid $select-focus;
-// }
+h1 {
+  margin-bottom: 5px;
+}
