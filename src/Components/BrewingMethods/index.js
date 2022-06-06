@@ -6,8 +6,8 @@ const BrewingMethods = () => {
     <div className="brewing-methods">
       <div className="intro">
         <p>
-          Not all coffee is brewed in the same way. Different brewing styles can cause changes in
-          the flavor and strength of the drink. Check out a few brewing styles below.
+          There are many ways to brew coffee, each one creating a unique flavor and level of
+          strength. Check out a few brewing styles below.
         </p>
       </div>
       <BrewInfoCard />
