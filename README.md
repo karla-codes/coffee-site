@@ -2,7 +2,7 @@
 
 A simple site displaying various coffee drink recipes and information on brewing methods.
 
-Check out the live site here "enter site link here".
+Check out the live site [here](https://teal-starburst-84b202.netlify.app/).
 
 Built using:
 
@@ -19,7 +19,3 @@ Built using:
    This will build the Sass files and run the app in development mode.
 
    To view in browser, open [http://localhost:3000/](http://localhost:3000/)
-
-3. To build the app for production, run:
-
-   `npm run build`
