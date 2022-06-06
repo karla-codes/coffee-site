@@ -4,9 +4,9 @@ A simple site displaying various coffee drink recipes and information on brewing
 
 Check out the live site [here](https://teal-starburst-84b202.netlify.app/).
 
-Built using:
+Built with [Create-React-App](https://create-react-app.dev/)
 
-- [Create-React-App](https://create-react-app.dev/)
+Deployed with [Netlify](https://www.netlify.com/)
 
 ## How to Use
 
