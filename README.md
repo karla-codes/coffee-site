@@ -14,12 +14,12 @@ Built using:
 
 2. Inside the project directory run:
 
-`npm start`
+   `npm start`
 
-This will build the Sass files and run the app in development mode.
+   This will build the Sass files and run the app in development mode.
 
-To view in browser, open [http://localhost:3000/](http://localhost:3000/)
+   To view in browser, open [http://localhost:3000/](http://localhost:3000/)
 
 3. To build the app for production, run:
 
-`npm run build`
+   `npm run build`
