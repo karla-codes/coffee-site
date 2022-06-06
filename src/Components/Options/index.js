@@ -22,19 +22,18 @@ const Options = () => {
 
   const updateCoffeeSelection = e => {
     const selectedCoffee = e.target.value
-    console.log(selectedCoffee)
-    setCoffee(selectedCoffee)
-    updateNextPrevCoffee(selectedCoffee)
+    if (selectedCoffee) {
+      setCoffee(selectedCoffee)
+      updateNextPrevCoffee(selectedCoffee)
+    }
   }
 
   const nextCard = () => {
-    console.log(nextCoffee)
     setCoffee(nextCoffee)
     updateNextPrevCoffee(nextCoffee)
   }
 
   const previousCard = () => {
-    console.log(prevCoffee)
     setCoffee(prevCoffee)
     updateNextPrevCoffee(prevCoffee)
   }
@@ -51,6 +50,7 @@ const Options = () => {
         <div className="options">
           <label>Select a coffee:</label>
           <select name="coffee-drinks" id="coffee-selector" onChange={updateCoffeeSelection}>
+            <option value="">Please choose an option</option>
             {coffeeList.map((coffee, index) => (
               <option value={coffee.name} key={index}>
                 {coffee.name}
