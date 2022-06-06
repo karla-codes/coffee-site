@@ -54,20 +54,6 @@ h6 {
   isolation: isolate;
 }
 
-@font-face {
-  font-family: "Work Sans";
-  src: url("../fonts/WorkSans-VariableFont_wght.ttf"), format("ttf"), url("../fonts/WorkSans-Regular.woff2") format("woff2"), url("../fonts/WorkSans-Regular.woff") format("woff");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Work Sans";
-  src: url("../fonts/WorkSans-VariableFont_wght.ttf"), format("ttf"), url("../fonts/WorkSans-SemiBold.woff2") format("woff2"), url("../fonts/WorkSans-SemiBold.woff") format("woff");
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-}
 p,
 a {
   font-size: 1.125rem;
@@ -194,6 +180,7 @@ main .drinks article.recipe-card .options select {
   width: 100%;
   font-family: inherit;
   font-size: inherit;
+  color: inherit;
   cursor: inherit;
   line-height: inherit;
   display: flex;
