@@ -16,4 +16,6 @@ Inside the project directory run:
 
 `npm start`
 
-This will build the Sass files and run the app in development mode. To view in browser, open [http://localhost:3000/](http://localhost:3000/)
+This will build the Sass files and run the app in development mode.
+
+To view in browser, open [http://localhost:3000/](http://localhost:3000/)
