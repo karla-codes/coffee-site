@@ -118,7 +118,7 @@ main {
           cursor: pointer;
           line-height: 1.1;
           background-color: #fff;
-          max-width: 20ch;
+          max-width: 26ch;
 
           &::-ms-expand {
             display: none;
@@ -235,15 +235,29 @@ main {
 }
 
 footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: $main-color;
   width: 100%;
   margin-inline: auto;
   padding: 32px;
   margin-top: auto;
 
+  @media screen and (min-width: 916px) {
+    flex-direction: row;
+    align-items: center;
+  }
+
   a {
     color: $dark-secondary;
     font-weight: 600;
+  }
+
+  div:last-of-type {
+    min-width: 300px;
+    max-width: 60%;
+    margin-top: 32px;
   }
 }
 
