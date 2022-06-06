@@ -10,12 +10,16 @@ Built using:
 
 ## How to Use
 
-Download or clone this repository.
+1. Download or clone this repository.
 
-Inside the project directory run:
+2. Inside the project directory run:
 
 `npm start`
 
 This will build the Sass files and run the app in development mode.
 
 To view in browser, open [http://localhost:3000/](http://localhost:3000/)
+
+3. To build the app for production, run:
+
+`npm run build`
